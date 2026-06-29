@@ -13,23 +13,19 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "src/main.ts",
-            "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
-          },
+  "browser": "src/main.ts",
+  "tsConfig": "tsconfig.app.json",
+  "baseHref": "/shruti-portfolio/",
+  "assets": [
+    {
+      "glob": "**/*",
+      "input": "public"
+    }
+  ],
+  "styles": [
+    "src/styles.css"
+  ]
+},
           "configurations": {
             "production": {
               "budgets": [
@@ -83,6 +79,9 @@
               "src/styles.css"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
