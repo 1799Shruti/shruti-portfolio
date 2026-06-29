@@ -1,0 +1,212 @@
+<div class="page-shell">
+  <header class="hero-section" id="home">
+    <nav class="topbar" aria-label="Primary navigation">
+      <a class="brand" href="#home">
+        <span class="brand-icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 7.5C4 6.67157 4.67157 6 5.5 6H18.5C19.3284 6 20 6.67157 20 7.5V16.5C20 17.3284 19.3284 18 18.5 18H5.5C4.67157 18 4 17.3284 4 16.5V7.5Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="M8 10H16"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M8 13H14"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M8 16H12"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+        </span>
+        {{ profile.name }}.
+      </a>
+      <div class="nav-links">
+        @for (item of navItems; track item.href) {
+          <a [href]="item.href">{{ item.label }}</a>
+        }
+      </div>
+    </nav>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Crafting modern digital products with impact</p>
+        <h1>
+          Hi, I'm <span>{{ profile.name }}</span
+          >.
+        </h1>
+        <h2>{{ profile.role }}</h2>
+        <p class="lead">{{ profile.tagline }}</p>
+        <p class="lead">Based in {{ profile.location }}</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">See projects</a>
+          <a class="btn btn-secondary" href="#contact">Contact me</a>
+        </div>
+
+        <div class="stats-grid">
+          @for (stat of stats; track stat.label) {
+            <div class="stat-card">
+              <strong>{{ stat.value }}</strong>
+              <span>{{ stat.label }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="Highlights">
+        <div class="avatar">SB</div>
+        <div class="panel-content">
+          <h3>What I bring</h3>
+          <ul>
+            <li>Clean, maintainable architecture</li>
+            <li>Responsive and accessible experiences</li>
+            <li>Product-minded engineering and collaboration</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">About Me</p>
+        <h2>
+          I build modern web experiences that solve real business problems.
+        </h2>
+      </div>
+      <p class="section-copy">
+        I combine strong technical execution with a collaborative mindset to
+        build solutions that are reliable, scalable, and genuinely useful for
+        users.
+      </p>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-heading">
+        <p class="eyebrow">Core Skills</p>
+        <h2>Strengths in front-end, back-end, and product-focused delivery.</h2>
+      </div>
+      <div class="cards-grid">
+        @for (skill of skillSet; track skill.name) {
+          <article class="info-card">
+            <h3>{{ skill.name }}</h3>
+            <p>{{ skill.detail }}</p>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-heading">
+        <p class="eyebrow">Work Experience</p>
+        <h2>
+          Delivering engineering results with leadership and collaboration.
+        </h2>
+      </div>
+      <div class="experience-list">
+        @for (item of experience; track item.title) {
+          <article class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.company }}</p>
+              </div>
+              <span>{{ item.period }}</span>
+            </div>
+            <ul>
+              @for (detail of item.details; track detail) {
+                <li>{{ detail }}</li>
+              }
+            </ul>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="section-heading">
+        <p class="eyebrow">Education</p>
+        <h2>
+          Academic foundation in computer applications and software development.
+        </h2>
+      </div>
+      <div class="education-grid">
+        @for (item of education; track item.degree) {
+          <article class="info-card">
+            <h3>{{ item.degree }}</h3>
+            <p>{{ item.institution }}</p>
+            <p class="muted">{{ item.year }} • {{ item.score }}</p>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-heading">
+        <p class="eyebrow">Featured Work</p>
+        <h2>
+          Selected work that balances product clarity with technical depth.
+        </h2>
+      </div>
+      <div class="projects-grid">
+        @for (project of projects; track project.title) {
+          <article class="project-card">
+            <div class="project-top">
+              <h3>{{ project.title }}</h3>
+              <a [href]="project.link" target="_blank" rel="noreferrer"
+                >Preview ↗</a
+              >
+            </div>
+            <p>{{ project.description }}</p>
+            <ul class="chip-list">
+              @for (tech of project.stack; track tech) {
+                <li>{{ tech }}</li>
+              }
+            </ul>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="contact-card">
+        <div>
+          <p class="eyebrow">Get in Touch</p>
+          <h2>Ready to collaborate on ambitious web products.</h2>
+          <p class="section-copy">
+            I’m always interested in new ideas, meaningful collaborations, and
+            opportunities where I can contribute with both code and care.
+          </p>
+        </div>
+        <div class="contact-list">
+          @for (item of contactDetails; track item.label) {
+            <a [href]="item.href" target="_blank" rel="noreferrer">
+              <span>{{ item.label }}</span>
+              <strong>{{ item.value }}</strong>
+            </a>
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 {{ profile.name }}. Built with Angular.</p>
+  </footer>
+</div>
